@@ -6,20 +6,20 @@
     <title>PliaCRM — Prospection pliage industriel</title>
     <meta
       name="description"
-      content="Interface CRM statique pour une entreprise de pliage industriel : prospection, pipeline, relances et priorisation commerciale."
+      content="Interface CRM de prospection pour entreprise de pliage avec un espace Admin séparé."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar" aria-label="Navigation principale">
-        <a class="brand" href="#top" aria-label="Accueil PliaCRM">
+        <a class="brand" href="#dashboard" aria-label="Accueil PliaCRM">
           <span class="brand-mark">P</span>
           <span>
             <strong>PliaCRM</strong>
@@ -27,12 +27,12 @@
           </span>
         </a>
 
-        <nav class="nav-list" aria-label="Sections CRM">
-          <a class="active" href="#dashboard">Tableau de bord</a>
-          <a href="#pipeline">Pipeline</a>
-          <a href="#prospects">Prospects</a>
-          <a href="#relances">Relances</a>
-          <a href="#devis">Devis</a>
+        <nav class="nav-list" aria-label="Sections de l'application">
+          <a class="nav-link active" href="#dashboard" data-view="crm">Tableau de bord</a>
+          <a class="nav-link" href="#pipeline" data-view="crm">Pipeline</a>
+          <a class="nav-link" href="#prospects" data-view="crm">Prospects</a>
+          <a class="nav-link" href="#devis" data-view="crm">Devis</a>
+          <a class="nav-link admin-link" href="#admin-game" data-view="admin">Admin</a>
         </nav>
 
         <section class="sales-card" aria-labelledby="sales-goal-title">
@@ -41,253 +41,361 @@
           <div class="progress" aria-label="Progression de l'objectif : 68 %">
             <span style="width: 68%"></span>
           </div>
-          <p>126 k€ déjà qualifiés grâce aux relances atelier et aux appels entrants.</p>
+          <p>126 k€ qualifiés grâce aux relances atelier, aux appels entrants et aux devis prioritaires.</p>
         </section>
       </aside>
 
-      <main id="top" class="main-content">
-        <header class="hero" id="dashboard">
-          <div>
-            <p class="eyebrow">CRM commercial · pliage industriel</p>
-            <h1>Prospectez, qualifiez et convertissez vos clients de pliage plus vite.</h1>
-            <p class="hero-copy">
-              Une interface pensée pour suivre les chaudronniers, métalliers, fabricants de mobilier,
-              sous-traitants mécaniques et bureaux d'études qui recherchent des prestations de pliage fiables.
-            </p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#prospects">Ajouter un prospect</a>
-              <a class="btn secondary" href="#pipeline">Voir le pipeline</a>
+      <main class="main-content">
+        <section id="crm-view" class="view active-view" aria-label="Interface CRM de prospection" aria-hidden="false">
+          <header class="hero" id="dashboard">
+            <div>
+              <p class="eyebrow">CRM commercial · pliage industriel</p>
+              <h1>Prospectez, qualifiez et convertissez vos clients de pliage plus vite.</h1>
+              <p class="hero-copy">
+                Une interface pensée pour suivre les chaudronniers, métalliers, fabricants de mobilier,
+                sous-traitants mécaniques et bureaux d'études qui recherchent des prestations de pliage fiables.
+              </p>
+              <div class="hero-actions">
+                <a class="btn primary" href="#prospects">Ajouter un prospect</a>
+                <a class="btn secondary" href="#pipeline">Voir le pipeline</a>
+              </div>
             </div>
-          </div>
 
-          <section class="quick-panel" aria-labelledby="next-action-title">
-            <p class="eyebrow">Prochaine meilleure action</p>
-            <h2 id="next-action-title">Relancer Atelier Martin</h2>
-            <p>Demande de prix pour 420 pièces acier S235, rayon 2 mm, livraison souhaitée sous 12 jours.</p>
-            <button class="btn primary" type="button">Planifier un appel</button>
+            <section class="quick-panel" aria-labelledby="next-action-title">
+              <p class="eyebrow">Prochaine meilleure action</p>
+              <h2 id="next-action-title">Relancer Atelier Martin</h2>
+              <p>Demande de prix pour 420 pièces acier S235, rayon 2 mm, livraison souhaitée sous 12 jours.</p>
+              <button class="btn primary" type="button">Planifier un appel</button>
+            </section>
+          </header>
+
+          <section class="metrics-grid" aria-label="Indicateurs de prospection">
+            <article class="metric-card">
+              <span>Prospects actifs</span>
+              <strong>248</strong>
+              <small>+18 cette semaine</small>
+            </article>
+            <article class="metric-card">
+              <span>Devis à envoyer</span>
+              <strong>32</strong>
+              <small>7 urgents avant 17h</small>
+            </article>
+            <article class="metric-card">
+              <span>Taux de conversion</span>
+              <strong>31%</strong>
+              <small>+4 pts vs mois dernier</small>
+            </article>
+            <article class="metric-card">
+              <span>CA potentiel</span>
+              <strong>412 k€</strong>
+              <small>pipeline pondéré</small>
+            </article>
           </section>
-        </header>
 
-        <section class="metrics-grid" aria-label="Indicateurs de prospection">
-          <article class="metric-card">
-            <span>Prospects actifs</span>
-            <strong>248</strong>
-            <small>+18 cette semaine</small>
-          </article>
-          <article class="metric-card">
-            <span>Devis à envoyer</span>
-            <strong>32</strong>
-            <small>7 urgents avant 17h</small>
-          </article>
-          <article class="metric-card">
-            <span>Taux de conversion</span>
-            <strong>31%</strong>
-            <small>+4 pts vs mois dernier</small>
-          </article>
-          <article class="metric-card">
-            <span>CA potentiel</span>
-            <strong>412 k€</strong>
-            <small>pipeline pondéré</small>
-          </article>
+          <section class="workspace-grid">
+            <article class="panel pipeline-panel" id="pipeline">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Pipeline commercial</p>
+                  <h2>Opportunités par étape</h2>
+                </div>
+                <button class="icon-btn" type="button" aria-label="Ajouter une opportunité">+</button>
+              </div>
+
+              <div class="pipeline-board" aria-label="Colonnes du pipeline">
+                <div class="pipeline-column">
+                  <h3>Nouveau contact <span>58 k€</span></h3>
+                  <div class="deal-card">
+                    <strong>Menuiserie Lefort</strong>
+                    <p>Profilés aluminium · 1 200 plis/mois</p>
+                    <small>Contacté via LinkedIn</small>
+                  </div>
+                  <div class="deal-card warm">
+                    <strong>Mobilier Urbain Sud</strong>
+                    <p>Prototype inox brossé · besoin BE</p>
+                    <small>À qualifier demain</small>
+                  </div>
+                </div>
+
+                <div class="pipeline-column">
+                  <h3>Qualification <span>96 k€</span></h3>
+                  <div class="deal-card hot">
+                    <strong>Atelier Martin</strong>
+                    <p>Série acier S235 · 420 pièces</p>
+                    <small>Échantillon validé</small>
+                  </div>
+                  <div class="deal-card">
+                    <strong>TechFab Ouest</strong>
+                    <p>Capotages machine · pliage complexe</p>
+                    <small>Plan DXF reçu</small>
+                  </div>
+                </div>
+
+                <div class="pipeline-column">
+                  <h3>Devis envoyé <span>151 k€</span></h3>
+                  <div class="deal-card hot">
+                    <strong>Signalétique Moreau</strong>
+                    <p>Alu 30/10 · livraison multi-sites</p>
+                    <small>Décision vendredi</small>
+                  </div>
+                  <div class="deal-card warm">
+                    <strong>IndusMeca 42</strong>
+                    <p>Contrat cadre · pièces récurrentes</p>
+                    <small>Relance J+3</small>
+                  </div>
+                </div>
+
+                <div class="pipeline-column">
+                  <h3>Négociation <span>107 k€</span></h3>
+                  <div class="deal-card hot">
+                    <strong>Groupe AéroForm</strong>
+                    <p>Aluminium aéronautique · tolérance fine</p>
+                    <small>Audit fournisseur prévu</small>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <aside class="panel reminder-panel" id="relances">
+              <div class="section-heading compact">
+                <div>
+                  <p class="eyebrow">Relances prioritaires</p>
+                  <h2>Aujourd'hui</h2>
+                </div>
+              </div>
+              <ul class="task-list">
+                <li>
+                  <span class="task-time">09:30</span>
+                  <div>
+                    <strong>Appel devis urgent</strong>
+                    <p>Signalétique Moreau · valider délai matière</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="task-time">11:00</span>
+                  <div>
+                    <strong>Email plans manquants</strong>
+                    <p>TechFab Ouest · demander tolérances et finition</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="task-time">15:15</span>
+                  <div>
+                    <strong>Relance prescription</strong>
+                    <p>Cabinet BE Delta · proposer visite atelier</p>
+                  </div>
+                </li>
+              </ul>
+            </aside>
+          </section>
+
+          <section class="workspace-grid prospects-grid">
+            <article class="panel" id="prospects">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Base prospects</p>
+                  <h2>Comptes à prioriser</h2>
+                </div>
+                <div class="filters" role="group" aria-label="Filtres prospects">
+                  <button class="filter active" type="button" data-filter="all">Tous</button>
+                  <button class="filter" type="button" data-filter="hot">Chaud</button>
+                  <button class="filter" type="button" data-filter="warm">Tiède</button>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Entreprise</th>
+                      <th>Secteur</th>
+                      <th>Besoin pliage</th>
+                      <th>Score</th>
+                      <th>Prochaine action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-status="hot">
+                      <td><strong>AéroForm</strong><span>contact : Claire Dumas</span></td>
+                      <td>Aéronautique</td>
+                      <td>Alu 5083, rayon serré</td>
+                      <td><span class="score high">92</span></td>
+                      <td>Audit atelier</td>
+                    </tr>
+                    <tr data-status="warm">
+                      <td><strong>Mobilier Urbain Sud</strong><span>contact : Karim Bellah</span></td>
+                      <td>Mobilier métal</td>
+                      <td>Inox brossé, petites séries</td>
+                      <td><span class="score medium">76</span></td>
+                      <td>Envoyer book réalisations</td>
+                    </tr>
+                    <tr data-status="hot">
+                      <td><strong>Signalétique Moreau</strong><span>contact : Nadia Moreau</span></td>
+                      <td>Signalétique</td>
+                      <td>Alu, plis répétitifs</td>
+                      <td><span class="score high">88</span></td>
+                      <td>Confirmer prix transport</td>
+                    </tr>
+                    <tr data-status="warm">
+                      <td><strong>Menuiserie Lefort</strong><span>contact : Hugo Lefort</span></td>
+                      <td>Menuiserie aluminium</td>
+                      <td>Profilés longs, cadence</td>
+                      <td><span class="score medium">71</span></td>
+                      <td>Appel découverte</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <aside class="panel quote-panel" id="devis">
+              <p class="eyebrow">Assistant devis rapide</p>
+              <h2>Estimation pliage</h2>
+              <form class="quote-form">
+                <label>
+                  Matière
+                  <select aria-label="Matière">
+                    <option>Acier S235</option>
+                    <option>Inox 304L</option>
+                    <option>Aluminium 5754</option>
+                  </select>
+                </label>
+                <label>
+                  Épaisseur
+                  <select aria-label="Épaisseur">
+                    <option>15/10</option>
+                    <option>20/10</option>
+                    <option>30/10</option>
+                    <option>50/10</option>
+                  </select>
+                </label>
+                <label>
+                  Nombre de plis
+                  <input type="number" min="1" value="6" aria-label="Nombre de plis" />
+                </label>
+                <label>
+                  Quantité
+                  <input type="number" min="1" value="420" aria-label="Quantité" />
+                </label>
+                <div class="quote-result">
+                  <span>Prix cible estimé</span>
+                  <strong>3 780 € HT</strong>
+                  <small>Marge recommandée : 28%</small>
+                </div>
+                <button class="btn primary full" type="button">Créer un devis</button>
+              </form>
+            </aside>
+          </section>
         </section>
 
-        <section class="workspace-grid">
-          <article class="panel pipeline-panel" id="pipeline">
-            <div class="section-heading">
-              <div>
-                <p class="eyebrow">Pipeline commercial</p>
-                <h2>Opportunités par étape</h2>
-              </div>
-              <button class="icon-btn" type="button" aria-label="Ajouter une opportunité">+</button>
+        <section id="admin-game" class="view game-view" aria-label="Onglet Admin" aria-hidden="true" hidden>
+          <header class="game-hero panel">
+            <div>
+              <p class="eyebrow">Admin · mini-jeu éthique</p>
+              <h1>Atelier Idle</h1>
+              <p>
+                Un jeu de gestion sans argent réel : cliquez, produisez des pièces, améliorez l'atelier,
+                ouvrez des coffres gratuits et complétez des missions courtes.
+              </p>
             </div>
-
-            <div class="pipeline-board" aria-label="Colonnes du pipeline">
-              <div class="pipeline-column">
-                <h3>Nouveau contact <span>58 k€</span></h3>
-                <div class="deal-card">
-                  <strong>Menuiserie Lefort</strong>
-                  <p>Profilés aluminium · 1 200 plis/mois</p>
-                  <small>Contacté via LinkedIn</small>
-                </div>
-                <div class="deal-card warm">
-                  <strong>Mobilier Urbain Sud</strong>
-                  <p>Prototype inox brossé · besoin BE</p>
-                  <small>À qualifier demain</small>
-                </div>
-              </div>
-
-              <div class="pipeline-column">
-                <h3>Qualification <span>96 k€</span></h3>
-                <div class="deal-card hot">
-                  <strong>Atelier Martin</strong>
-                  <p>Série acier S235 · 420 pièces</p>
-                  <small>Échantillon validé</small>
-                </div>
-                <div class="deal-card">
-                  <strong>TechFab Ouest</strong>
-                  <p>Capotages machine · pliage complexe</p>
-                  <small>Plan DXF reçu</small>
-                </div>
-              </div>
-
-              <div class="pipeline-column">
-                <h3>Devis envoyé <span>151 k€</span></h3>
-                <div class="deal-card hot">
-                  <strong>Signalétique Moreau</strong>
-                  <p>Alu 30/10 · livraison multi-sites</p>
-                  <small>Décision vendredi</small>
-                </div>
-                <div class="deal-card warm">
-                  <strong>IndusMeca 42</strong>
-                  <p>Contrat cadre · pièces récurrentes</p>
-                  <small>Relance J+3</small>
-                </div>
-              </div>
-
-              <div class="pipeline-column">
-                <h3>Négociation <span>107 k€</span></h3>
-                <div class="deal-card hot">
-                  <strong>Groupe AéroForm</strong>
-                  <p>Aluminium aéronautique · tolérance fine</p>
-                  <small>Audit fournisseur prévu</small>
-                </div>
-              </div>
+            <div class="save-actions">
+              <button class="btn secondary" id="save-game" type="button">Sauvegarder</button>
+              <button class="btn danger" id="reset-game" type="button">Réinitialiser</button>
             </div>
-          </article>
+          </header>
 
-          <aside class="panel reminder-panel" id="relances">
-            <div class="section-heading compact">
-              <div>
-                <p class="eyebrow">Relances prioritaires</p>
-                <h2>Aujourd'hui</h2>
-              </div>
+          <section class="game-stats" aria-label="Statistiques du joueur">
+            <article class="stat-tile">
+              <span>Pièces</span>
+              <strong id="coins-value">0</strong>
+            </article>
+            <article class="stat-tile">
+              <span>Niveau</span>
+              <strong id="level-value">1</strong>
+            </article>
+            <article class="stat-tile">
+              <span>Pièces / clic</span>
+              <strong id="per-click-value">1</strong>
+            </article>
+            <article class="stat-tile">
+              <span>Pièces / sec</span>
+              <strong id="per-second-value">0</strong>
+            </article>
+          </section>
+
+          <section class="xp-panel panel" aria-label="Progression d'expérience">
+            <div class="xp-line">
+              <strong>XP</strong>
+              <span id="xp-label">0 / 35</span>
             </div>
-            <ul class="task-list">
-              <li>
-                <span class="task-time">09:30</span>
+            <div class="progress xp-progress" aria-label="Progression vers le niveau suivant">
+              <span id="xp-fill" style="width: 0%"></span>
+            </div>
+            <p id="next-hint">Encore 35 XP avant le niveau suivant.</p>
+          </section>
+
+          <section class="game-layout">
+            <article class="panel click-zone">
+              <p class="eyebrow">Production</p>
+              <h2>Atelier de pliage</h2>
+              <button class="big-click" id="main-click" type="button" aria-label="Produire une pièce">
+                <span>⚙</span>
+                Produire
+              </button>
+              <p id="bonus-status" class="bonus-status">Aucun bonus actif pour le moment.</p>
+              <div class="near-goal">
+                <span id="upgrade-hint">Première amélioration bientôt disponible.</span>
+              </div>
+            </article>
+
+            <article class="panel shop-panel">
+              <div class="section-heading compact">
                 <div>
-                  <strong>Appel devis urgent</strong>
-                  <p>Signalétique Moreau · valider délai matière</p>
+                  <p class="eyebrow">Boutique</p>
+                  <h2>Améliorations</h2>
                 </div>
-              </li>
-              <li>
-                <span class="task-time">11:00</span>
+              </div>
+              <div id="shop-list" class="shop-list"></div>
+            </article>
+
+            <article class="panel missions-panel">
+              <div class="section-heading compact">
                 <div>
-                  <strong>Email plans manquants</strong>
-                  <p>TechFab Ouest · demander tolérances et finition</p>
+                  <p class="eyebrow">Objectifs courts</p>
+                  <h2>Missions proches</h2>
                 </div>
-              </li>
-              <li>
-                <span class="task-time">15:15</span>
+              </div>
+              <div id="mission-list" class="mission-list"></div>
+            </article>
+
+            <article class="panel chests-panel">
+              <div class="section-heading compact">
                 <div>
-                  <strong>Relance prescription</strong>
-                  <p>Cabinet BE Delta · proposer visite atelier</p>
+                  <p class="eyebrow">Loot gratuit</p>
+                  <h2>Coffres</h2>
                 </div>
-              </li>
-            </ul>
-          </aside>
-        </section>
-
-        <section class="workspace-grid prospects-grid">
-          <article class="panel" id="prospects">
-            <div class="section-heading">
-              <div>
-                <p class="eyebrow">Base prospects</p>
-                <h2>Comptes à prioriser</h2>
+                <span class="pill" id="chest-count">0 coffre</span>
               </div>
-              <div class="filters" role="group" aria-label="Filtres prospects">
-                <button class="filter active" type="button" data-filter="all">Tous</button>
-                <button class="filter" type="button" data-filter="hot">Chaud</button>
-                <button class="filter" type="button" data-filter="warm">Tiède</button>
-              </div>
-            </div>
+              <button class="btn primary full" id="open-chest" type="button">Ouvrir un coffre</button>
+              <div id="chest-animation" class="chest-animation" aria-live="polite">🎁</div>
+              <p class="ethical-note">Les coffres se gagnent uniquement en jouant. Aucun achat, aucune publicité.</p>
+            </article>
 
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Entreprise</th>
-                    <th>Secteur</th>
-                    <th>Besoin pliage</th>
-                    <th>Score</th>
-                    <th>Prochaine action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr data-status="hot">
-                    <td><strong>AéroForm</strong><span>contact : Claire Dumas</span></td>
-                    <td>Aéronautique</td>
-                    <td>Alu 5083, rayon serré</td>
-                    <td><span class="score high">92</span></td>
-                    <td>Audit atelier</td>
-                  </tr>
-                  <tr data-status="warm">
-                    <td><strong>Mobilier Urbain Sud</strong><span>contact : Karim Bellah</span></td>
-                    <td>Mobilier métal</td>
-                    <td>Inox brossé, petites séries</td>
-                    <td><span class="score medium">76</span></td>
-                    <td>Envoyer book réalisations</td>
-                  </tr>
-                  <tr data-status="hot">
-                    <td><strong>Signalétique Moreau</strong><span>contact : Nadia Moreau</span></td>
-                    <td>Signalétique</td>
-                    <td>Alu, plis répétitifs</td>
-                    <td><span class="score high">88</span></td>
-                    <td>Confirmer prix transport</td>
-                  </tr>
-                  <tr data-status="warm">
-                    <td><strong>Menuiserie Lefort</strong><span>contact : Hugo Lefort</span></td>
-                    <td>Menuiserie aluminium</td>
-                    <td>Profilés longs, cadence</td>
-                    <td><span class="score medium">71</span></td>
-                    <td>Appel découverte</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
-
-          <aside class="panel quote-panel" id="devis">
-            <p class="eyebrow">Assistant devis rapide</p>
-            <h2>Estimation pliage</h2>
-            <form class="quote-form">
-              <label>
-                Matière
-                <select aria-label="Matière">
-                  <option>Acier S235</option>
-                  <option>Inox 304L</option>
-                  <option>Aluminium 5754</option>
-                </select>
-              </label>
-              <label>
-                Épaisseur
-                <select aria-label="Épaisseur">
-                  <option>15/10</option>
-                  <option>20/10</option>
-                  <option>30/10</option>
-                  <option>50/10</option>
-                </select>
-              </label>
-              <label>
-                Nombre de plis
-                <input type="number" min="1" value="6" aria-label="Nombre de plis" />
-              </label>
-              <label>
-                Quantité
-                <input type="number" min="1" value="420" aria-label="Quantité" />
-              </label>
-              <div class="quote-result">
-                <span>Prix cible estimé</span>
-                <strong>3 780 € HT</strong>
-                <small>Marge recommandée : 28%</small>
+            <article class="panel achievements-panel">
+              <div class="section-heading compact">
+                <div>
+                  <p class="eyebrow">Succès</p>
+                  <h2>Déblocages</h2>
+                </div>
               </div>
-              <button class="btn primary full" type="button">Créer un devis</button>
-            </form>
-          </aside>
+              <div id="achievement-list" class="achievement-list"></div>
+            </article>
+          </section>
         </section>
       </main>
     </div>
 
-    <script src="script.js"></script>
+    <div id="toast-stack" class="toast-stack" aria-live="polite" aria-atomic="true"></div>
+    <script src="app.js"></script>
   </body>
 </html>
