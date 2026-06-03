@@ -22,6 +22,11 @@ filterButtons.forEach((button) => {
 
 function showView(viewName) {
   const isAdmin = viewName === "admin";
+
+  crmView.hidden = isAdmin;
+  adminView.hidden = !isAdmin;
+  crmView.setAttribute("aria-hidden", String(isAdmin));
+  adminView.setAttribute("aria-hidden", String(!isAdmin));
   crmView.classList.toggle("active-view", !isAdmin);
   adminView.classList.toggle("active-view", isAdmin);
 }
@@ -36,6 +41,8 @@ navLinks.forEach((link) => {
 
 if (window.location.hash === "#admin-game") {
   document.querySelector(".admin-link")?.click();
+} else {
+  showView("crm");
 }
 
 const IdleGame = (() => {

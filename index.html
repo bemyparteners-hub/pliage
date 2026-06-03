@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PliaCRM — CRM & Admin Game</title>
+    <title>PliaCRM — Prospection pliage industriel</title>
     <meta
       name="description"
-      content="Interface CRM de prospection pour entreprise de pliage avec onglet admin intégrant un idle game éthique en JavaScript vanilla."
+      content="Interface CRM de prospection pour entreprise de pliage avec un espace Admin séparé."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +23,7 @@
           <span class="brand-mark">P</span>
           <span>
             <strong>PliaCRM</strong>
-            <small>CRM · pliage · admin</small>
+            <small>Pliage & prospection</small>
           </span>
         </a>
 
@@ -46,7 +46,7 @@
       </aside>
 
       <main class="main-content">
-        <section id="crm-view" class="view active-view" aria-label="Interface CRM de prospection">
+        <section id="crm-view" class="view active-view" aria-label="Interface CRM de prospection" aria-hidden="false">
           <header class="hero" id="dashboard">
             <div>
               <p class="eyebrow">CRM commercial · pliage industriel</p>
@@ -288,7 +288,7 @@
           </section>
         </section>
 
-        <section id="admin-game" class="view game-view" aria-label="Onglet admin avec jeu idle">
+        <section id="admin-game" class="view game-view" aria-label="Onglet Admin" aria-hidden="true" hidden>
           <header class="game-hero panel">
             <div>
               <p class="eyebrow">Admin · mini-jeu éthique</p>

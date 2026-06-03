@@ -52,6 +52,10 @@ button {
   cursor: pointer;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .app-shell {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
